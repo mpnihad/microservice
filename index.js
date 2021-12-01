@@ -31,7 +31,7 @@ app.get("/api/:date",(req,res)=>{
     // if(!error){
     
         utils.on('getDate',(eventArg) => {
-            
+
             if(eventArg.flag===1)
 {
     res.json({unix:req.params.date,utc:eventArg.data})
@@ -51,7 +51,7 @@ else{
 // }
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 443;
 app.listen(port,()=>{
    
     console.log(`listening on port ${port}`)
