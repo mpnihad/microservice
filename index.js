@@ -2,8 +2,16 @@
 
 const Joi =require('joi');
 
-const express =require('express');
-const app= express();
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+var privateKey  = fs.readFileSync(__dirname+'/sslcert/server.key', 'utf8');
+var certificate = fs.readFileSync(__dirname+'/sslcert/server.crt', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
+var express = require('express');
+var app = express();
+
 
 // app.use(express.json());
 
@@ -51,8 +59,6 @@ else{
 // }
 });
 
-const port = process.env.PORT || 443;
-app.listen(port,()=>{
    
-    console.log(`listening on port ${port}`)
-});
+httpServer.listen(8080);
+httpsServer.listen(8443);
