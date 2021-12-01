@@ -31,6 +31,7 @@ app.get("/api/:date",(req,res)=>{
     // if(!error){
     
         utils.on('getDate',(eventArg) => {
+            
             if(eventArg.flag===1)
 {
     res.json({unix:req.params.date,utc:eventArg.data})
