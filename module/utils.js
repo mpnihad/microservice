@@ -4,7 +4,7 @@ const EventEmmiter = require('events');
 
 class Utils extends EventEmmiter{
     
-    getDateFromTimeStamp(timeStamp){
+    getDateFromTimeStamp(timeStamp,res){
 
         try {
             var date = new Date(timeStamp*1000);
@@ -12,9 +12,10 @@ class Utils extends EventEmmiter{
             console.log(timeStamp)
             var dateString = date.toUTCString();
             this.emit('getDate',{data : dateString,flag : 1});
+            res.json({unix:timeStamp,utc:dateString})
         } catch (error) {
             console.log(error)
-            this.emit('getDate',{data : "Not a valid TimeStamp",flag : 0});
+            res.json({unix:timeStamp,utc:"Not a valid TimeStamp"})
         }
     }
 }

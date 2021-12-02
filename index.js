@@ -37,20 +37,21 @@ app.get("/api/:date",(req,res)=>{
             
             if(eventArg.flag===1)
 {
-    res.json({unix:req.params.date,utc:eventArg.data})
+
+    // res.json({unix:req.params.date,utc:eventArg.data})
 
 }
 else{
-    res.write("Wrong")
+    // res.write("Wrong")
 
 }
             console.log('getDate',eventArg);
         })
 
-        utils.getDateFromTimeStamp(req.params.date);
+        utils.getDateFromTimeStamp(req.params.date,res);
        
         // res.write(utils.getDateFromTimeStamp(req.params.date))
-        res.end;
+        // res.end;
     
 // }
 });
