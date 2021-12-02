@@ -41,6 +41,7 @@ app.get("/api/:date",(req,res)=>{
 
 }
 else{
+    res.write("Wrong")
 
 }
             console.log('getDate',eventArg);
@@ -55,7 +56,7 @@ else{
 });
 
 
-const port =process.env.PORT || 3000;
+const port =process.env.PORT || 3001;
 app.listen(port,()=>{
    
     console.log(`listening on port ${port}`)
